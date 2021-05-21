@@ -1,0 +1,249 @@
+
+.title {
+  font-size: 2em;
+}
+
+.question {
+  width: auto;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2%;
+  margin-left: 50%;
+  margin-right: 50%;
+  display: flex;
+}
+
+.lyric {
+  display: inline-block;
+  position: relative;
+  padding: 0.7em 1.4em;
+  border-radius:0.15em;
+  box-sizing: border-box;
+  font-weight:400;
+  color:#FFFFFF;
+  background-color:#904C77;
+  box-shadow:inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
+  text-align:center;
+  cursor: pointer;
+}
+
+.lyric:active {
+  top:0.1em;
+}
+
+@media all and (max-width:30em){
+  lyric {
+    display:block;
+    margin:0.4em auto;
+  }
+}
+
+#left-lyric {
+  margin: 0 0.3em 0.3em 0;
+}
+
+#right-lyric {
+  margin: 0 0 0.3em 0.3em;
+}
+
+.or {
+
+}
+
+.result {
+  justify-content: center;
+}
+
+.blur-result {
+  justify-content: center;
+  filter:blur(10px);
+}
+
+.venn {
+  margin-top: 3%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 35vh;
+  width: 35vw;
+}
+
+.pie {
+  margin-left: auto;
+  margin-right: auto;
+  height: 25vh;
+  width: 25vw;
+}
+
+.guess-title {
+  margin-top: 2%;
+  font-size: 1em;
+}
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+  text-align: center;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#song-info {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 1000;
+  font-size: 12px;
+  border-collapse: collapse;
+  width: 100%;
+  text-align: left;
+}
+
+#song-info td, #song-info th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#song-info tr:nth-child(even){background-color: #f2f2f2;}
+
+#song-info tr:hover {background-color: #ddd;}
+
+#song-info th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #904C77;
+  color: white;
+}
+
+#song-info td {
+  color: black;
+}
+
+.next-questions {
+  margin-left: auto;
+  margin-right: auto;
+  width: 25vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.next-question {
+  width: fit-content;
+  margin-bottom: 0.5vh;
+  display: inline-block;
+  position: relative;
+  padding: 0.7em 1.4em;
+  border-radius:0.15em;
+  box-sizing: border-box;
+  font-weight:400;
+  color:#FFFFFF;
+  background-color:#904C77;
+  box-shadow:inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
+  text-align:center;
+  cursor: pointer;
+}
+
+.next-question:active {
+  top: 0.1em;
+}
+
+#custom-form {
+  width: 40%;
+  color: black;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+form{
+  margin-top: 5%;
+  text-align: left;
+}
+
+label {
+  text-align: left;
+  font-size: 12px;
+  color: black;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family:'Montserrat',sans-serif;
+  font-weight: 700;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #904C77;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family:'Montserrat',sans-serif;
+}
+
+input[type=submit]:hover {
+  background-color: #91597d;
+  font-family:'Montserrat',sans-serif;
+}
+
+.app {
+  text-align: center;
+  display: block;
+}
+
+body {
+	background: linear-gradient(-45deg, #737373, #000000, #363636);
+	background-size: 400vw 400vh;
+	animation: gradient 60s ease infinite;
+  color: #FFCAD4;
+  text-decoration:none;
+  font-family:'Montserrat',sans-serif;
+  text-transform:uppercase;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
