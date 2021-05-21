@@ -17,11 +17,11 @@ class Question extends React.Component {
   render() {
     return (
       <div className="question">
-        <a className="lyric" id="left-lyric" onClick={(event) => this.props.onClick(event, this.props.word1)}>
+        <a className="lyric" id="left-lyric" onClick={() => this.props.onClick(this.props.word1)}>
           {this.props.word1}
         </a>
         <div className="or">OR</div>
-        <a className="lyric" id="right-lyric" onClick={(event) => this.props.onClick(event, this.props.word2)}>
+        <a className="lyric" id="right-lyric" onClick={() => this.props.onClick(this.props.word2)}>
           {this.props.word2}
         </a>
       </div>
@@ -255,8 +255,7 @@ class App extends React.Component {
     return [l[0], l[1]];
   }
 
-  handleVoteClick(event, pick) {
-    event.preventDefault();
+  handleVoteClick(pick) {
     if (this.state.voted) return;
     const isPublic = this.state.public;
     var [w1, w2] = this.alphabetizeWords();
@@ -313,8 +312,7 @@ class App extends React.Component {
     });
   }
 
-  handleRandomClick(event) {
-    if (event) event.preventDefault();
+  handleRandomClick() {
     fetch(COMP_URL)
     .then( response => response.json())
     .then(result => {
@@ -339,8 +337,7 @@ class App extends React.Component {
     });
   }
 
-  handleCustomClick(event) {
-    event.preventDefault();
+  handleCustomClick() {
     this.setState( (state, props) => {
       return {
         customPopupActive: true,
@@ -411,12 +408,12 @@ class App extends React.Component {
           <div className="title">
             Guess Which Word Appears in More Hit Songs...
           </div>
-          <Question word1={this.state.voteData[0]['key']} word2={this.state.voteData[1]['key']} onClick={(event, pick) => this.handleVoteClick(event, pick)}/>
+          <Question word1={this.state.voteData[0]['key']} word2={this.state.voteData[1]['key']} onClick={(pick) => this.handleVoteClick(pick)}/>
           <div>
             No results for songs containing {this.state.voteData[0]['key']} and {this.state.voteData[1]['key']}
           </div>
           <Result lyricsData={this.state.lyricsData} voteData={this.state.voteData} voted={this.state.voted} onClick={(arc) => this.handleArcClick(arc)}/>
-          <NextQuestions onRandomClick={(event) => this.handleRandomClick(event)} onCustomClick={(event) => this.handleCustomClick(event)}/>
+          <NextQuestions onRandomClick={() => this.handleRandomClick()} onCustomClick={() => this.handleCustomClick()}/>
           <SongsPopup songsPopupActive={this.state.songsPopupActive} onClick={() => this.handlePopupClose()}/>
           <CustomPopup customPopupActive={this.state.customPopupActive} onClose={() => this.handlePopupClose()} onSubmit={(event, form) => this.handleSubmit(event, form)} />
         </div>
@@ -427,9 +424,9 @@ class App extends React.Component {
         <div className="title">
           Guess Which Word Appears in More Hit Songs...
         </div>
-        <Question word1={this.state.voteData[0]['key']} word2={this.state.voteData[1]['key']} onClick={(event, pick) => this.handleVoteClick(event, pick)}/>
+        <Question word1={this.state.voteData[0]['key']} word2={this.state.voteData[1]['key']} onClick={(pick) => this.handleVoteClick(pick)}/>
         <Result lyricsData={this.state.lyricsData} voteData={this.state.voteData} voted={this.state.voted} onClick={(arc) => this.handleArcClick(arc)}/>
-        <NextQuestions onRandomClick={(event) => this.handleRandomClick(event)} onCustomClick={(event) => this.handleCustomClick(event)}/>
+        <NextQuestions onRandomClick={() => this.handleRandomClick()} onCustomClick={() => this.handleCustomClick()}/>
         <SongsPopup songsPopupActive={this.state.songsPopupActive} onClick={() => this.handlePopupClose()}/>
         <CustomPopup customPopupActive={this.state.customPopupActive} onClose={() => this.handlePopupClose()} onSubmit={(event, form) => this.handleSubmit(event, form)} />
       </div>
